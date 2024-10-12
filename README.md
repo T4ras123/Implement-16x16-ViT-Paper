@@ -1,33 +1,41 @@
 # Implement-16x16-ViT-Paper
 
-Paper I'm implementing: [Dostovitskiy et al. 2021](https://arxiv.org/abs/2010.11929v2)
+This repository contains an implementation of the Vision Transformer (ViT) model as described in the paper by [Dosovitskiy et al. 2021](https://arxiv.org/abs/2010.11929v2).
 
-----
+## Model Overview
 
-## Model overview
+The Vision Transformer leverages the scalable architecture proposed in the original [Vaswani et al. 2017](https://arxiv.org/pdf/1706.03762) paper, adapting it for image classification tasks.
 
-![alt text](./media/image.png)
+![Model Architecture](./media/image.png)
 
-The Vision Transformer takes advantage of scalable architecture proposed in the original [Vaswani et al. 2017](https://arxiv.org/pdf/1706.03762) paper, while adapting it to the image classification tasks.
+## Key Changes
 
-----
-## The changes
+1. **Embedding Flattened Image Patches**: Instead of tokens, the model embeds flattened image patches.
+2. **Class Token**: A class token is added to the sequence of patches.
+3. **Layer Normalization**: Applied before Multi-Head Self-Attention (MHSA) and Multi-Layer Perceptron (MLP) blocks.
 
-1. Embedding flattened image patches instead of tokens.
-2. Introduction of a class token added to the sequence of patches.
-![alt text](media/image1.png)
-3. Layer norm is applied before MHSA and MLP blocks.
+![Class Token](media/image1.png)
 
-----
+## Note
 
-## Training
+This implementation is for educational purposes, and no pre-trained weights are provided.
 
-- The data used for pre-training
-  - **ILSVRC-2012 ImageNet** dataset with 1k classes
-and 1.3M images
-  - **ImageNet-21k** with
-21k classes and 14M images
-  - **JFT** with 18k classes and
-303M high-resolution images
+## Model Definition
 
-The paper is implemented in code for educational purposes, so there is no trained weights.
+The model is defined in [model.ipynb](https://github.com/T4ras123/Implement-16x16-ViT-Paper/blob/main/model.ipynb) and [train.py](https://github.com/T4ras123/Implement-16x16-ViT-Paper/blob/main/train.py). 
+
+## Key classes include
+
+- VisionTransformer
+- Block
+- MultiHeadAttention
+- Head
+- FeedForward
+
+## Example
+
+An example of how to use the model can be found in [model.ipynb](https://github.com/T4ras123/Implement-16x16-ViT-Paper/blob/main/model.ipynb).
+
+References
+Dosovitskiy et al. 2021
+Vaswani et al. 2017
